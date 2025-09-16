@@ -1,4 +1,4 @@
-module day1
+module go-resume-demo
 
 go 1.24.4
 

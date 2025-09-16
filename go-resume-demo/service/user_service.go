@@ -1,8 +1,8 @@
 package service
 
 import (
-	"day1/model"
 	"github.com/gin-gonic/gin"
+	"go-resume-demo/model"
 	"strconv"
 )
 
