@@ -1,8 +1,8 @@
 package service
 
 import (
+	"github.com/Cyte-091/go-resume-demo/model"
 	"github.com/gin-gonic/gin"
-	"go-resume-demo/model"
 	"strconv"
 )
 
