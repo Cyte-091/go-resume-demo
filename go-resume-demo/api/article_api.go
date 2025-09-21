@@ -18,6 +18,7 @@ type ArticleApi struct{}
 // @Produce json
 // @Param article body model.Article true "article"
 // @Success 200 {object} model.Article
+// @Security Bearer
 // @Router /article [post]
 func (a *ArticleApi) CreateArticle(c *gin.Context) {
 	var art model.Article
@@ -38,6 +39,7 @@ func (a *ArticleApi) CreateArticle(c *gin.Context) {
 // @Produce json
 // @Param id path int true "id"
 // @Success 200 {object} model.Article
+// @Security Bearer
 // @Router /article/{id} [delete]
 func (a *ArticleApi) DeleteArticle(c *gin.Context) {
 	// 1. 把路由参数转成 uint
@@ -68,6 +70,7 @@ func (a *ArticleApi) DeleteArticle(c *gin.Context) {
 // @Param id path int true "id"
 // @Param article body model.Article true "article"
 // @Success 200 {object} model.Article
+// @Security Bearer
 // @Router /article/{id} [put]
 func (a *ArticleApi) UpdateArticle(c *gin.Context) {
 	var art model.Article
@@ -89,6 +92,7 @@ func (a *ArticleApi) UpdateArticle(c *gin.Context) {
 // @Produce json
 // @Param id path int true "id"
 // @Success 200 {object} model.Article
+// @Security Bearer
 // @Router /article/{id} [get]
 func (a *ArticleApi) GetArticle(c *gin.Context) {
 	// 1. 解析路由参数 id
@@ -120,6 +124,7 @@ func (a *ArticleApi) GetArticle(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Success 200 {object} model.Article
+// @Security Bearer
 // @Router /article [get]
 func (a *ArticleApi) ListArticle(c *gin.Context) {
 	// 1. 直接查数据库

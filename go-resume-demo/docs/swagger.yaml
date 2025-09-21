@@ -1,4 +1,14 @@
 definitions:
+  api.LoginReq:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
   model.Article:
     properties:
       body:
@@ -22,6 +32,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Article'
+      security:
+      - Bearer: []
       summary: 获取文章列表
     post:
       consumes:
@@ -40,6 +52,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Article'
+      security:
+      - Bearer: []
       summary: 新增文章
   /article/{id}:
     delete:
@@ -58,6 +72,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Article'
+      security:
+      - Bearer: []
       summary: 删除文章
     get:
       consumes:
@@ -75,6 +91,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Article'
+      security:
+      - Bearer: []
       summary: 获取文章
     put:
       consumes:
@@ -98,5 +116,33 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Article'
+      security:
+      - Bearer: []
       summary: 修改文章
+  /login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: req
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/api.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 登录
+securityDefinitions:
+  Bearer:
+    description: Type "Bearer" followed by a space and JWT token.
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"
