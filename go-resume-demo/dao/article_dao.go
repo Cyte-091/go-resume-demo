@@ -18,3 +18,10 @@ func ListArticle() ([]model.Article, error) {
 	var list []model.Article
 	return list, initialize.DB.Find(&list).Error
 }
+
+type IArticleDao interface {
+	CreateArticle(art *model.Article) error
+	GetByID(id uint) (model.Article, error)
+}
+
+var NewArticleDao IArticleDao = &articleDaoImpl{} // 简单工厂
