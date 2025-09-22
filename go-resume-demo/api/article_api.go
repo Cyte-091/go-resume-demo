@@ -125,7 +125,7 @@ func (a *ArticleApi) GetArticle(c *gin.Context) {
 // @Produce json
 // @Success 200 {object} model.Article
 // @Security Bearer
-// @Router /article [get]
+// @Router /articles [get]
 func (a *ArticleApi) ListArticle(c *gin.Context) {
 	// 1. 直接查数据库
 	list, err := dao.ListArticle()
