@@ -27,7 +27,7 @@ func (l *LoginApi) Login(c *gin.Context) {
 	}
 	// 简易硬编码校验
 	if req.UserName != "admin" || req.Password != "123456" {
-		c.JSON(http.StatusUnauthorized, gin.H{"msg": "user or password error"})
+		c.JSON(http.StatusUnauthorized, gin.H{"msg": "user or password errno"})
 		return
 	}
 	token, _ := utils.GenerateToken(req.UserName)
